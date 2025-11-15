@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
-  const URL = import.meta.env.VITE_API_URL;
+  const URL = process.env.NEXT_PUBLIC_API_URL;
   const [form, setForm] = useState({
     email: "",
     phone: "",

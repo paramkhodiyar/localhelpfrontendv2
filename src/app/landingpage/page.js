@@ -20,7 +20,7 @@ import {
 export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const URL = import.meta.env.VITE_API_URL;
+  const URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     async function checkAuth() {
