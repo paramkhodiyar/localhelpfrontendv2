@@ -21,6 +21,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const URL = process.env.NEXT_PUBLIC_API_URL;
+  console.log("API URL:", URL);
 
   useEffect(() => {
     async function checkAuth() {
