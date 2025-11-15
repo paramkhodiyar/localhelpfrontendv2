@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const router = useRouter();
+  const URL = process.env.VITE_API_URL;
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -20,8 +21,9 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try{    
-        const response = await fetch("http://localhost:4040/api/auth/signup", {
+        const response = await fetch(`${URL}/api/auth/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

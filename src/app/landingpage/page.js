@@ -18,21 +18,22 @@ import { FaChalkboardTeacher,
 export default function Dashboard() {
     const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const URL = process.env.VITE_API_URL;
 
   useEffect(() => {
     async function checkAuth() {
       try {
-        const res = await fetch("http://localhost:4040/api/auth/me", {
-          credentials: "include", // VERY IMPORTANT
+        const res = await fetch(`${URL}/api/auth/me`, {
+          credentials: "include", 
         });
 
         if (!res.ok) {
-          router.push("/login");   // Not logged in
+          router.push("/login"); 
           return;
         }
 
         const data = await res.json();
-        console.log("User:", data.user);  // Contains id, email, role
+        console.log("User:", data.user); 
 
         setLoading(false);
       } catch (err) {
@@ -49,13 +50,9 @@ export default function Dashboard() {
       <Navbar />
 
       <div className="min-h-screen pt-20 bg-[#ece9d8]">
-        {/* HERO SECTION */}
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
-            
-            {/* LEFT SECTION */}
             <div className="flex-1 space-y-8">
-              {/* Heading */}
               <div>
                 <h1 className="text-5xl font-bold text-[#4a2e21] leading-tight mb-4">
                   All your needs,<br />solved in a click
@@ -64,14 +61,10 @@ export default function Dashboard() {
                   Connect with verified professionals for any service you need
                 </p>
               </div>
-
-              {/* SERVICES CARD */}
               <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
                 <h2 className="text-xl font-semibold text-[#4a2e21] mb-6">
                   What are you looking for?
                 </h2>
-
-                {/* Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {[
                     { icon: FaChalkboardTeacher, label: "Tutoring" },
@@ -95,8 +88,6 @@ export default function Dashboard() {
                   ))}
                 </div>
               </div>
-
-              {/* METRICS */}
               <div className="flex items-center justify-around bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-[#4a2e21]">1 Cr+</p>
@@ -118,8 +109,6 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-
-            {/* RIGHT SIDE IMAGE */}
             <div className="flex-1 flex justify-center lg:justify-end">
               <div className="w-full max-w-lg h-[600px] rounded-2xl border border-gray-200 bg-[#f5f2ea] shadow-xl overflow-hidden">
                 <img
@@ -132,8 +121,6 @@ export default function Dashboard() {
 
           </div>
         </div>
-
-        {/* WHY CHOOSE US SECTION */}
         <div className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-[#4a2e21] text-center mb-12">
@@ -172,8 +159,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-        {/* TESTIMONIALS SECTION */}
         <div className="bg-[#ece9d8] py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-[#4a2e21] text-center mb-12">
@@ -216,8 +201,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-        {/* CTA SECTION */}
         <div className="bg-[#4a2e21] py-16">
           <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
