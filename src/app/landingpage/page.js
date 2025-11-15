@@ -20,14 +20,23 @@ import {
 export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const URL = process.env.NEXT_PUBLIC_API_URL || "https://localhelpbackendv2.onrender.com"; 
+  const URL =
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://localhelpbackendv2.onrender.com";
   console.log("API URL:", URL);
 
   useEffect(() => {
     async function checkAuth() {
       try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          router.push("/login");
+          return;
+        }
         const res = await fetch(`${URL}/api/auth/me`, {
-          credentials: "include",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (!res.ok) {
