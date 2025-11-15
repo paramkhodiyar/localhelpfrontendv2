@@ -20,7 +20,7 @@ import {
 export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const URL = process.env.NEXT_PUBLIC_API_URL || "https://localhelpbackendv2.onrender.comS"; 
+  const URL = process.env.NEXT_PUBLIC_API_URL || "https://localhelpbackendv2.onrender.com"; 
   console.log("API URL:", URL);
 
   useEffect(() => {
