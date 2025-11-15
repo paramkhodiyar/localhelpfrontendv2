@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const router = useRouter();
-  const URL = process.env.VITE_API_URL;
+  const URL = import.meta.env.VITE_API_URL;
   const [form, setForm] = useState({
     name: "",
     email: "",
