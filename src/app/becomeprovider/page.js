@@ -18,7 +18,7 @@ export default function BecomeProviderPage() {
       toast.loading("Upgrading your account…", { id: "loading" });
 
       const response = await axios.post(
-        `https://localhelpbackendv2.onrender.com"}/api/become-provider`,
+        `https://localhelpbackendv2.onrender.com"/api/become-provider`,
         { bio, experience },
         { withCredentials: true }
       );
@@ -56,7 +56,7 @@ export default function BecomeProviderPage() {
             <textarea
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              className="w-full p-3 border border-[#C8B69E] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6F4E37] bg-[#FFFDF6]"
+              className="w-full p-3 border border-[#C8B69E] text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6F4E37] bg-[#FFFDF6]"
               rows={3}
               placeholder="Tell us about yourself..."
             />
@@ -71,7 +71,7 @@ export default function BecomeProviderPage() {
               min="0"
               value={experience}
               onChange={(e) => setExperience(e.target.value)}
-              className="w-full p-3 border border-[#C8B69E] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6F4E37] bg-[#FFFDF6]"
+              className="w-full p-3 border border-[#C8B69E] rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-[#6F4E37] bg-[#FFFDF6]"
               placeholder="e.g., 3"
             />
           </div>
