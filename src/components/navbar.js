@@ -23,7 +23,7 @@ function Navbar() {
             <FiChevronDown className="text-gray-600 text-lg" />
           </div>
           <a
-            href="/become-provider"
+            href="/becomeprovider"
             className="px-4 py-2 bg-[#672410] text-white rounded-lg shadow hover:bg-rose-800 transition"
           >
             Become Provider
