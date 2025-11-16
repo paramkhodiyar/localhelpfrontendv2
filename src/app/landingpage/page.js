@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Loading from "@/components/loading";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -56,7 +57,7 @@ export default function Dashboard() {
     checkAuth();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   return (
     <>
       <Navbar />
