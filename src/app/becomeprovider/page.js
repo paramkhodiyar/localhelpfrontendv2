@@ -18,7 +18,7 @@ export default function BecomeProviderPage() {
       toast.loading("Upgrading your account…", { id: "loading" });
 
       const response = await axios.post(
-        `https://localhelpbackendv2.onrender.com"/api/become-provider`,
+        `https://localhelpbackendv2.onrender.com/api/become-provider`,
         { bio, experience },
         { withCredentials: true }
       );
