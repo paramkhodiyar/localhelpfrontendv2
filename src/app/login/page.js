@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
-  const URL = process.env.NEXT_PUBLIC_API_URL || "https://localhelpbackendv2.onrender.com";
+  const URL = process.env.PRODUCTION  ? "https://localhelpbackendv2.onrender.com" : "http://localhost:4040";
   const [form, setForm] = useState({
     email: "",
     phone: "",
