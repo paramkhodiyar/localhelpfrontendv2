@@ -64,7 +64,7 @@ export default function Dashboard() {
         const res = await fetch(`${URL}/api/categories`);
         const data = await res.json();
 
-        setCategories(data.categories.slice(0, 5)); // LIMIT to 5
+        setCategories(data.categories.slice(0, 5)); 
       } catch (err) {
         console.error("Category fetch error", err);
       }
@@ -83,7 +83,7 @@ export default function Dashboard() {
       <div className="min-h-screen pt-20 bg-[#ece9d8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* LEFT SECTION */}
+ 
             <div className="flex-1 space-y-8">
               <div>
                 <h1 className="text-5xl font-bold text-[#4a2e21] leading-tight mb-4">
@@ -95,7 +95,7 @@ export default function Dashboard() {
                 </p>
               </div>
 
-              {/* 🔥 Dynamic Categories */}
+ 
               <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
                 <h2 className="text-xl font-semibold text-[#4a2e21] mb-6">
                   What are you looking for?
@@ -118,7 +118,7 @@ export default function Dashboard() {
                   })}
                 </div>
 
-                {/* 👇 View All Button */}
+
                 <div className="mt-6 flex justify-center">
                   <button
                     onClick={() => router.push("/service")}
@@ -129,7 +129,6 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* Stats */}
               <div className="flex items-center justify-around bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-[#4a2e21]">1 Cr+</p>
@@ -150,7 +149,6 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* RIGHT IMAGE */}
             <div className="flex-1 flex justify-center lg:justify-end">
               <div className="w-full max-w-lg h-[600px] rounded-2xl border border-gray-200 bg-[#f5f2ea] shadow-xl overflow-hidden">
                 <img
@@ -163,7 +161,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Other Sections remain the same - not touching those */}
+ 
         <div className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <h2 className="text-3xl font-bold text-[#4a2e21] text-center mb-12">

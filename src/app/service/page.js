@@ -25,7 +25,7 @@ const URL = isProd
   ? "https://localhelpbackendv2.onrender.com"
   : "http://localhost:4040";
 
-  // mapping DB icon text → actual icon component
+ 
   const iconMap = {
     FaTools,
     FaBroom,
@@ -72,7 +72,7 @@ const URL = isProd
           All Service Categories
         </h1>
 
-        {/* Categories Grid */}
+ 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {categories.map((cat) => {
             const Icon = iconMap[cat.icon] || FaTools;
@@ -80,7 +80,7 @@ const URL = isProd
             return (
               <div
                 key={cat.id}
-                onClick={() => router.push(`/categories/${cat.id}`)} // optional route
+                onClick={() => router.push(`/categories/${cat.id}`)}  
                 className="cursor-pointer bg-white p-6 rounded-xl shadow-md border border-[#e5dcc7] 
                            hover:shadow-lg hover:scale-105 transition-all flex flex-col items-center"
               >
