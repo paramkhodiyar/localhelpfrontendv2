@@ -25,10 +25,11 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
-  const URL =
-    process.env.PRODUCTION
-      ? "https://localhelpbackendv2.onrender.com"
-      : "http://localhost:4040";
+  const isProd = process.env.NEXT_PUBLIC_IS_PROD === "true";
+
+  const URL = isProd
+    ? "https://localhelpbackendv2.onrender.com"
+    : "http://localhost:4040";
 
   const iconMap = {
     FaTools,
@@ -82,7 +83,6 @@ export default function Dashboard() {
       <div className="min-h-screen pt-20 bg-[#ece9d8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
-
             {/* LEFT SECTION */}
             <div className="flex-1 space-y-8">
               <div>
