@@ -7,7 +7,11 @@ import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const router = useRouter();
-  const URL = process.env.PRODUCTION  ? "https://localhelpbackendv2.onrender.com" : "http://localhost:4040";
+  const isProd = process.env.NEXT_PUBLIC_IS_PROD === "true";
+
+  const URL = isProd
+    ? "https://localhelpbackendv2.onrender.com"
+    : "http://localhost:4040";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -22,42 +26,38 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{    
-        const response = await fetch(`${URL}/api/auth/signup`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(form),
-        });
-        const data = await response.json();
+    try {
+      const response = await fetch(`${URL}/api/auth/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+      const data = await response.json();
 
-        if (!response.ok) {
-            throw new Error(data.message || "Something went wrong");
-        }
+      if (!response.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
 
-        toast.success("Account created successfully!", {
-            style: {
-                background: "#e6ffed",
-                color: "#03543f",
-            },
-        });
+      toast.success("Account created successfully!", {
+        style: {
+          background: "#e6ffed",
+          color: "#03543f",
+        },
+      });
 
-        setTimeout(() => {
-            router.push("/login");
-        }, 1500);
-    }catch(err){
-        toast.error(err.message || "Something went wrong", {
-            style: {
-                background: "#ffe5e5",
-                color: "#b30000",
-            },
-        }); 
-
+      setTimeout(() => {
+        router.push("/login");
+      }, 1500);
+    } catch (err) {
+      toast.error(err.message || "Something went wrong", {
+        style: {
+          background: "#ffe5e5",
+          color: "#b30000",
+        },
+      });
     }
-
-
-    
   };
   return (
     <div className="min-h-screen w-full flex bg-neutral-50">
@@ -75,8 +75,6 @@ export default function Signup() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
             Create your account
           </h2>
-         
-
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -104,8 +102,6 @@ export default function Signup() {
               />
             </div>
             <div>
-                
-
               <input
                 type="text"
                 name="phone"

@@ -19,11 +19,11 @@ export default function ServicesPage() {
   const router = useRouter();
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+const isProd = process.env.NEXT_PUBLIC_IS_PROD === "true";
 
-  const URL =
-    process.env.PRODUCTION
-      ? "https://localhelpbackendv2.onrender.com"
-      : "http://localhost:4040";
+const URL = isProd
+  ? "https://localhelpbackendv2.onrender.com"
+  : "http://localhost:4040";
 
   // mapping DB icon text → actual icon component
   const iconMap = {
